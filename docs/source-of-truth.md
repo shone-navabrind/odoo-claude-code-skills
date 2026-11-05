@@ -1,30 +1,32 @@
-# Source pointers and version policy
+# Official Odoo development and operations references
 
-Use this page to avoid rediscovering the same primary references. Open only the pages that bear on the task and verify that they match the installed/source and target versions.
+These are canonical starting points, not a substitute for checking the exact version. Documentation structure, URLs, CLI flags, test framework details, and APIs can change. Select the version that matches the checkout and verify each page's contents before applying it.
 
-## Official Odoo sources
+## Official documentation
 
-- Documentation index: https://www.odoo.com/documentation/
-- Developer documentation (select the version matching the checkout): https://www.odoo.com/documentation/19.0/developer.html
-- Upgrade documentation (select the version matching the target): https://www.odoo.com/documentation/19.0/administration/upgrade.html
-- Official Community source: https://github.com/odoo/odoo
-- Odoo upgrade utilities: https://github.com/odoo/upgrade-util
-- Official upgrade service information: https://www.odoo.com/upgrade
+- [Documentation version selector](https://www.odoo.com/documentation/)
+- [Developer documentation landing pages](https://www.odoo.com/documentation/19.0/developer.html) (example version only; navigate to the actual version)
+- [Administration documentation](https://www.odoo.com/documentation/19.0/administration.html) (example version only)
+- [Upgrade documentation](https://www.odoo.com/documentation/19.0/administration/upgrade.html) (example version only)
+- [Odoo upgrade service](https://www.odoo.com/upgrade)
 
-The `19.0` URLs above are examples of versioned documentation paths, not a claim that every target-specific page exists or that its content applies to another release. Navigate to the actual version in use. For technical breaking changes, inspect official versioned documentation, official release notes, official source history, and applicable upgrade scripts. Treat each as evidence for a specific claim.
+## Official source/tools
 
-## Evidence rules
+- [Odoo Community source](https://github.com/odoo/odoo) — inspect the release branch corresponding to the installed/target version for implementation details.
+- [Odoo upgrade-util](https://github.com/odoo/upgrade-util) — inspect its own documentation and scripts; verify applicability to the specific upgrade task.
+- [Odoo CLI](https://www.odoo.com/documentation/19.0/developer/reference/cli.html) — example version path; verify current location and exact options for the checkout.
 
-1. Record source version, target version, edition (Community/Enterprise), hosting/deployment context, and module dependencies.
-2. Prefer official Odoo documentation and source. Third-party articles are leads only, never sole evidence for a code change.
-3. Cite each version-specific finding with exact page, source path/commit, or migration script and explain its impact on the module.
-4. A changed implementation in a source branch is not automatically a supported API change. Establish that the custom module depends on it.
-5. Do not copy Enterprise-specific assumptions into Community modules. Enterprise source and upgrade details may not be public.
-6. If the official target release's guidance is absent, mark the finding `UNVERIFIED`; do not fabricate replacement APIs, removed models, environment requirements, or upgrade steps.
-7. Use Odoo's supported database upgrade process for database upgrades. Porting custom module code is a separate task and does not itself migrate a production database.
+## How to use the references without wasting effort
 
-## Claude Code references
+1. Search the local repository first for its Odoo version, canonical dev command, addon paths, and existing patterns.
+2. Use targeted official documentation/source lookups for the API, option, model, view, test, or migration concern at hand, rather than reading the whole docs site.
+3. Prefer installed CLI help for the exact executable: `./odoo-bin --help` (or the project/container equivalent). Check the repository's scripts/config before choosing a command.
+4. When a docs path redirects, is unavailable, or appears inconsistent with the source version, use the official documentation version selector and mark the unresolved guidance rather than guessing.
+5. Treat official source as implementation evidence, not automatically a guarantee of stable public API. Cite the exact version/branch and relevant code path for compatibility conclusions.
+6. Use third-party material only as a lead to investigate in primary sources. Do not reproduce an unsupported checklist as fact.
 
-- Plugin structure and manifest: https://code.claude.com/docs/en/plugins
-- Plugin manifest reference: https://code.claude.com/docs/en/plugins/manifest-reference
-- Skills: https://code.claude.com/docs/en/skills
+## Related plugin workflows
+
+- [Odoo development workflow](dev-workflow.md)
+- [Odoo error triage](error-triage.md)
+- [Odoo 19 to 20 evidence policy](odoo-19-to-20.md)
