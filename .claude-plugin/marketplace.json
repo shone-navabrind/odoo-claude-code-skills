@@ -1,0 +1,17 @@
+{
+  "name": "odoo-claude-code-skills",
+  "owner": {
+    "name": "shone-navabrind"
+  },
+  "metadata": {
+    "description": "Claude Code skills for Odoo module development, maintenance, and migration.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "odoo-claude-code-skills",
+      "source": ".",
+      "description": "Odoo development, testing, review, and evidence-based migration skills."
+    }
+  ]
+}
